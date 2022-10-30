@@ -18,8 +18,23 @@ export default function Home() {
             </p>
             <div className='mt-6'>
               <div className='pb-4'>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder='Enter your name'/>
+                <label className='block font-latoBold text-sm pb-2' htmlFor="name">Name</label>
+                <input className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500' 
+                  type="text" name="name" placeholder='Enter your name'/>
+              </div>
+              <div className='pb-4'>
+                <label className='block font-latoBold text-sm pb-2' htmlFor="email">Email</label>
+                <input className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500' 
+                  type="email" name="email" placeholder='Enter your email'/>
+              </div>
+              <div className='pb-4'>
+                <label className='block font-latoBold text-sm pb-2' htmlFor="country">Country</label>
+                <select name="country" className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500' >
+                  <option>Republic of Ireland</option>
+                  <option selected  >United Kingdom</option>
+                  <option>United States</option>
+                  <option>The Netherlands</option>
+                </select>
               </div>
             </div>
           </div>

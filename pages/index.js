@@ -36,6 +36,15 @@ export default function Home() {
                   <option>The Netherlands</option>
                 </select>
               </div>
+              <div className='pb-4'>
+                <label className='block font-latoBold text-sm pb-2' htmlFor="terms">Terms of service</label>
+                <div className='flex item-center gap-2'>
+                  <input type="checkbox" name="terms" value="checked"  className='h-5 w-5 text-teal-500 border-2 focus:border-teal-500 focus:ring-teal-500'/>
+                  <p className='text-sm font-latoBold text-gray-500'>
+                    I agree to the Terms and Service that my data will be taken and sold.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </form>

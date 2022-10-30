@@ -11,27 +11,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='h-screen flex items-center justify-center'>
-        <form className='bg-white flex rounded-lg w-1/2 font-latoRegular'>
+      <main className="h-screen items-center flex justify-center">
+        <form className="bg-white flex rounded-lg w-1/2 font-latoRegular">
           <div className='flex-1 text-gray-700 p-20'>
             <h1 className='text-3xl pb-2 font-latoBold'>Let's get started 👋</h1>
             <p className='text-lg text-gray-500'>Join our e-learning platform and unlock over 500+ courses
               and digital assets ready to download.
             </p>
-            <div className='mt-6'>
+            <div className='mt-6' >
               <div className='pb-4'>
                 <label className='block font-latoBold text-sm pb-2' htmlFor="name">Name</label>
-                <input className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500' 
+                <input className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full' 
                   type="text" name="name" placeholder='Enter your name'/>
               </div>
               <div className='pb-4'>
                 <label className='block font-latoBold text-sm pb-2' htmlFor="email">Email</label>
-                <input className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500' 
+                <input className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full' 
                   type="email" name="email" placeholder='Enter your email'/>
               </div>
               <div className='pb-4'>
                 <label className='block font-latoBold text-sm pb-2' htmlFor="country">Country</label>
-                <select name="country" className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500' >
+                <select name="country" className='border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full' >
                   <option>Republic of Ireland</option>
                   <option selected  >United Kingdom</option>
                   <option>United States</option>

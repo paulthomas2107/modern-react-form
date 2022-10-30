@@ -1,4 +1,6 @@
-import Head from 'next/head';
+import Head from "next/head";
+import Image from "next/image";
+import formImage from '../public/form.png'
 
 export default function Home() {
   return (
@@ -45,11 +47,21 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+              <button type='submit' className='bg-teal-500 font-latoBold text-sm text-white py-3 mt-6 rounded-lg w-full'>
+                Start Learning Today !</button>
             </div>
+          </div>
+          <div className="relative flex-1">
+            <Image
+              className="object-cover rounded-lg"
+              fill
+              priority
+              src={formImage}
+              alt="form-learn"
+            />
           </div>
         </form>
       </main>
-
     </div>
   );
 }

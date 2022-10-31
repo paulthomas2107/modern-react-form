@@ -67,7 +67,7 @@ export default function Home() {
                   {formik.touched.name && formik.errors.name ? formik.errors.name : 'Name'}
                 </label>
                 <input
-                  className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full"
+                  className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 w-full"
                   type="text"
                   name="name"
                   value={formik.values.name}
@@ -84,7 +84,7 @@ export default function Home() {
                   {formik.touched.email && formik.errors.email ? formik.errors.email : 'Email'}
                 </label>
                 <input
-                  className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full"
+                  className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 w-full"
                   type="email"
                   name="email"
                   value={formik.values.email}

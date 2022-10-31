@@ -54,7 +54,7 @@ export default function Home() {
             <div className="mt-6">
               <div className="pb-4">
                 <label
-                  className={`block font-latoBold text-sm pb-2 ${formik.errors.name ? 'text-red-400' : ''}`}
+                  className={`block font-latoBold text-sm pb-2 ${formik.touched.name && formik.errors.name ? 'text-red-400' : ''}`}
                   htmlFor="name"
                 >
                   {formik.touched.name && formik.errors.name ? formik.errors.name : 'Name'}
@@ -71,10 +71,10 @@ export default function Home() {
               </div>
               <div className="pb-4">
                 <label
-                  className={`block font-latoBold text-sm pb-2 ${formik.errors.email ? 'text-red-400' : ''}`}
+                  className={`block font-latoBold text-sm pb-2 ${formik.touched.email && formik.errors.email ? 'text-red-400' : ''}`}
                   htmlFor="email"
                 >
-                  {formik.errors.email ? formik.errors.email : 'Email'}
+                  {formik.touched.email && formik.errors.email ? formik.errors.email : 'Email'}
                 </label>
                 <input
                   className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full"
@@ -82,6 +82,7 @@ export default function Home() {
                   name="email"
                   value={formik.values.email}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   placeholder="Enter your email"
                 />
               </div>
@@ -106,10 +107,10 @@ export default function Home() {
               </div>
               <div className="pb-4">
                 <label
-                  className="block font-latoBold text-sm pb-2"
+                   className={`block font-latoBold text-sm pb-2 ${formik.touched.terms && formik.errors.terms ? 'text-red-400' : ''}`}
                   htmlFor="terms"
                 >
-                  Terms of service
+                   {formik.touched.terms && formik.errors.terms ? formik.errors.terms : 'Terms of Service'}
                 </label>
                 <div className="flex item-center gap-2">
                   <input
@@ -117,6 +118,7 @@ export default function Home() {
                     name="terms"
                     value="checked"
                     onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className="h-5 w-5 text-teal-500 border-2 focus:border-teal-500 focus:ring-teal-500"
                   />
                   <p className="text-sm font-latoBold text-gray-500">

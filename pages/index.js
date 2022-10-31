@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import formImage from '../public/form.png';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function Home() {
   // Formik Logic
@@ -12,6 +13,22 @@ export default function Home() {
       country: 'United Kingdom',
       terms: '',
     },
+
+    // Validation 
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .max(20, 'Name must be 20 chars or fewer')
+        .required('Name is required'),
+      email: Yup.string()
+        .email('Invalid Email Address')
+        .required('Email is required'),
+      terms: Yup.array().
+        required("Terms of service must be checked"),
+    }),
+    // Submit
+    onSubmit: (values) => {
+      console.log(values)
+    }
   });
 
   return (
@@ -23,7 +40,9 @@ export default function Home() {
       </Head>
 
       <main className="h-screen items-center flex justify-center">
-        <form className="bg-white flex rounded-lg w-1/2 font-latoRegular">
+        <form  
+            onSubmit={formik.handleSubmit}  
+            className="bg-white flex rounded-lg w-1/2 font-latoRegular">
           <div className="flex-1 text-gray-700 p-20">
             <h1 className="text-3xl pb-2 font-latoBold">
               Let's get started 👋
@@ -35,10 +54,10 @@ export default function Home() {
             <div className="mt-6">
               <div className="pb-4">
                 <label
-                  className="block font-latoBold text-sm pb-2"
+                  className={`block font-latoBold text-sm pb-2 ${formik.errors.name ? 'text-red-400' : ''}`}
                   htmlFor="name"
                 >
-                  Name
+                  {formik.touched.name && formik.errors.name ? formik.errors.name : 'Name'}
                 </label>
                 <input
                   className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full"
@@ -46,15 +65,16 @@ export default function Home() {
                   name="name"
                   value={formik.values.name}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   placeholder="Enter your name"
                 />
               </div>
               <div className="pb-4">
                 <label
-                  className="block font-latoBold text-sm pb-2"
+                  className={`block font-latoBold text-sm pb-2 ${formik.errors.email ? 'text-red-400' : ''}`}
                   htmlFor="email"
                 >
-                  Email
+                  {formik.errors.email ? formik.errors.email : 'Email'}
                 </label>
                 <input
                   className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 w-full"
@@ -79,7 +99,7 @@ export default function Home() {
                   onChange={formik.handleChange}
                 >
                   <option>Republic of Ireland</option>
-                  <option selected>United Kingdom</option>
+                  <option>United Kingdom</option>
                   <option>United States</option>
                   <option>The Netherlands</option>
                 </select>
@@ -120,6 +140,7 @@ export default function Home() {
               priority
               src={formImage}
               alt="form-learn"
+              sizes='100vh'
             />
           </div>
         </form>

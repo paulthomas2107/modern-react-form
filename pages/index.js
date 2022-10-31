@@ -61,7 +61,7 @@ export default function Home() {
             <div className="mt-6">
               <div className="pb-4">
                 <label
-                  className={`block font-latoBold text-sm pb-2 ${formik.touched.name && formik.errors.name ? 'text-red-400' : ''}`}
+                  className={`block font-latoBold text-sm pb-2  ${formik.touched.name && formik.errors.name ? 'text-red-400' : ''}`}
                   htmlFor="name"
                 >
                   {formik.touched.name && formik.errors.name ? formik.errors.name : 'Name'}

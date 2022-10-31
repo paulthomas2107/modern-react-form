@@ -3,8 +3,13 @@ import Image from 'next/image';
 import formImage from '../public/form.png';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Router, { useRouter } from 'next/router';
 
 export default function Home() {
+
+  // Router 
+  const router = useRouter();
+
   // Formik Logic
   const formik = useFormik({
     initialValues: {
@@ -27,7 +32,7 @@ export default function Home() {
     }),
     // Submit
     onSubmit: (values) => {
-      console.log(values)
+      router.push({pathname: '/success',  query: values})
     }
   });
 
